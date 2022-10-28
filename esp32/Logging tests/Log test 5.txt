@@ -1,0 +1,5 @@
+ets Jul 29 2019 12:21:46rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)configsip: 0, SPIWP:0xeeclk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00mode:DIO, clock div:2load:0x3fff0030,len:1184load:0x40078000,len:13132load:0x40080400,len:3036entry 0x400805e4
+time,temperature BMP280,pressure BMP280,temperature AHT20,humidity AHT20,temperature DHT22,humidity DHT2210.00,23.38,100958.16,21.80,52.58,22.30,59.60
+20.00,23.37,100958.17,21.80,52.64,22.30,58.30
+30.00,23.36,100957.50,21.81,52.64,22.30,59.80
+40.00,23.36,100960.03,21.81,52.69,22.20,59.80
