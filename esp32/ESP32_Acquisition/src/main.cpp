@@ -9,7 +9,7 @@
 #define BMP1_SDA (21)
 
 // Global
-int readFreq = 10000;  // 10 sec
+int readFreq = 5000;  // 5 sec
 unsigned long previousTime = 0;
 
 // BMP280 sensor 
