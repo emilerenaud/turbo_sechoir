@@ -18,7 +18,7 @@
 
 //General defines
 #define ONBOARD_LED 2
-#define BLE_SERVER_NAME "BLE SERVER"
+#define BLE_SERVER_NAME "ESP32 BLE SERVER"
 
 // BLE Services
 #define SERVICE_UUID "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
@@ -63,13 +63,27 @@ void setup()
   pServer->getAdvertising()->start();
 }
 
+bool test = true;
+
 void loop()
 {
   if (devicesConnected > 0)
   {
     if ((millis() - lastTime) > timerDelay) {
 
-      charac_1.setValue("Hello World");
+      if (test)
+      {
+        static const char* msg = "0";
+        test = false;
+        charac_1.setValue(msg);
+      }
+      else
+      {
+        static const char* msg = "1";
+        test = true;
+        charac_1.setValue(msg);
+      }
+      
       charac_1.notify();
 
       lastTime = millis();
