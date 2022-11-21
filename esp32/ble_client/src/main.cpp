@@ -11,6 +11,13 @@ static void characNotifyCallback(BLERemoteCharacteristic* pBLERemoteCharacterist
 #define STATE_CONNECTED 2
 
 #define ONBOARD_LED 2
+
+#define SERVICE_UUID "s1afc201-1fb5-459e-8fcc-c5c9c331914b"
+
+//#define CHARAC_UUID "c1a1d466-344c-4be3-ab3f-189f80dd7518"
+// #define CHARAC_UUID "c2a1d466-344c-4be3-ab3f-189f80dd7518"
+ #define CHARAC_UUID "c3a1d466-344c-4be3-ab3f-189f80dd7518"
+// #define CHARAC_UUID "c4a1d466-344c-4be3-ab3f-189f80dd7518"
                                
 
 //BLE Server name (the other ESP32 name running the server sketch)
@@ -25,8 +32,8 @@ static BLEAddress *pServerAddress;
 static BLEScan* pBLEScan;
 
 /* UUID's of the service, characteristic that we want to read*/
-static BLEUUID serviceUUID("4fafc201-1fb5-459e-8fcc-c5c9c331914b");
-static BLEUUID characUUID("cba1d466-344c-4be3-ab3f-189f80dd7518");
+static BLEUUID serviceUUID(SERVICE_UUID);
+static BLEUUID characUUID(CHARAC_UUID);
 
 //Characteristicd that we want to read
 static BLERemoteCharacteristic* charac;
@@ -91,11 +98,7 @@ void loop()
   {
     if (newData)
     {
-      //TODO : format standard des messages 
-
-      //TODO : serveur se ferme apres une connexion je crois
-
-      if (data[1] == 1)
+      if (data[0] == 1)
       {
         digitalWrite(ONBOARD_LED,HIGH);
       }
