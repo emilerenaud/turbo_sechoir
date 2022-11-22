@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html>
+    <header>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="style.css">
+
+        <title>SSRS</title>
+
+    </header>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark fix-top" style="background-color: #FFA500; margin-bottom: 10px ;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="font-size: 40px;">SSRS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Tableau de bord</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+            <div class="row" style="margin: 10px;">
+                <div class="col-sm-6">                       
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                            <div class="col">
+
+                                <div class="card bg-light " style="width: 100%; height: 100%;" >
+                                    <div class="card-header text-center">
+                                        Caméra 1
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <img src="static/assets/Vue_cam_1_demo.png" class="card-img-top" alt="Camera not found" style="width: 100%; ">
+                                    </div>   
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+
+                                <div class="card bg-light " style="width: 100%; height: 100%;" >
+                                    <div class="card-header text-center">
+                                        Caméra 2
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <img src="static/assets/Vue_cam_2_demo.png" class="card-img-top" alt="Camera not found" style="width: 100%; ">
+                                    </div>   
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+
+                                <div class="card bg-light " style="width: 100%; height: 100%;" >
+                                    <div class="card-header text-center">
+                                        Caméra 3
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <img src="static/assets/Vue_cam_3_demo.png" class="card-img-top" alt="Camera not found" style="width: 100%; ">
+                                    </div>   
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+
+                                <div class="card bg-light " style="width: 100%; height: 100%;" >
+                                    <div class="card-header text-center">
+                                        Caméra 4
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <img src="..." class="card-img-top" alt="Camera not found" style="width: 100%; ">
+                                    </div>   
+                                </div>
+
+                            </div>
+
+                        </div>
+                </div>
+               
+                <div class="col-md-6">
+                    <div class="card bg-light " style="width: 100%; height: 100%;" >
+                        <div class="card-header text-center">
+                            Statut
+                        </div>
+                        <div class="card-body text-center">
+                            <img src="static/assets/Vue_plan_demo.png" class="card-img-top" alt="Card image cap" style="width: 100%; ">
+                        </div>   
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin: 10px;">
+                <div class="col-md-6">
+                    <div class="row row-cols-1 row-cols-md-2 g-2">
+
+                        <div class="col">
+
+                            <div class="card bg-light " style="width: 100%; height: 100%;" >
+                                <div class="card-header text-center">
+                                    Modes
+                                </div>
+                                <div class="card-body text-center">
+                                    
+                                    <button class="btn btn-info btn-lg" type="button" style="margin: 10px;" >Manuel</button>
+                                    <br>
+                                    <button class="btn btn-warning btn-lg" type="button" style="margin: 10px;" >Automatique</button>
+                                    
+                                </div>   
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+
+                            <div class="card bg-light " style="width: 100%; height: 100%;" >
+                                <div class="card-header text-center">
+                                    Paramètres
+                                </div>
+                                <div class="card-body text-center">
+                                    <button class="btn btn-light " type="button" style="margin: 10px;" >param1</button>
+                                    <br>
+                                    <button class="btn btn-light" type="button" style="margin: 10px;" >param2</button>
+                                    
+                                </div>   
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card bg-light " style="width: 100%; height: 100%;" >
+                        <div class="card-header text-center">
+                            Contrôle
+                        </div>
+                        <div class="card-body text-center">
+                            
+                            <button class="btn btn-success">Activer rue 1</button>
+                            <button class="btn btn-success">Activer rue 2</button>
+                            <button class="btn btn-success">Activer rue 3</button>
+                            <button class="btn btn-success disabled">Activer rue 4</button>
+                            
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+
+    </body>
+    
+</html>
