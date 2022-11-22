@@ -7,11 +7,11 @@
 
 
 // Servo
-#define ANGLE_CLOSE_FLAP 0
-#define ANGLE_OPEN_FLAP 150
+#define ANGLE_CLOSE_FLAP 58
+#define ANGLE_OPEN_FLAP 142
 
-#define MIN_US 1000
-#define MAX_US 2000
+#define MIN_US 500
+#define MAX_US 2400
 
 // street light
 #define GREEN 0
@@ -28,15 +28,24 @@ class turbo
         void open();
         void close();
         void flash();
+        void updateServo();
         void setStreet(int light);
     private:
         Servo* _servo;
         Adafruit_NeoPixel* _flap;
         Adafruit_NeoPixel* _street;
-        
+
+        // Servo Var
+        int _angle;
+        int _lastAngle;
+        long _lastMillisServo;
+
         int _flasher;
+        long _lastMillisFlasher;
         bool _enable;
 
 };
 
 #endif
+
+
