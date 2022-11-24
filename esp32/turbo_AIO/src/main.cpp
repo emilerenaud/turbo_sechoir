@@ -23,10 +23,10 @@ static void characNotifyCallback(BLERemoteCharacteristic* pBLERemoteCharacterist
 
 #define SERVICE_UUID "s1afc201-1fb5-459e-8fcc-c5c9c331914b"
 
-//#define CHARAC_UUID "c1a1d466-344c-4be3-ab3f-189f80dd7518"
+// #define CHARAC_UUID "c1a1d466-344c-4be3-ab3f-189f80dd7518"
 // #define CHARAC_UUID "c2a1d466-344c-4be3-ab3f-189f80dd7518"
- #define CHARAC_UUID "c3a1d466-344c-4be3-ab3f-189f80dd7518"
-// #define CHARAC_UUID "c4a1d466-344c-4be3-ab3f-189f80dd7518"
+// #define CHARAC_UUID "c3a1d466-344c-4be3-ab3f-189f80dd7518"
+#define CHARAC_UUID "c4a1d466-344c-4be3-ab3f-189f80dd7518"
                                
 
 //BLE Server name (the other ESP32 name running the server sketch)
