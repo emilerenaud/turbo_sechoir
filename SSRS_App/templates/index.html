@@ -8,10 +8,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="static/css/bootstrap.min.css">
-
+        <!-- <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css')}}"> -->
+        
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        
         <!-- Main CSS -->
-        <link rel="stylesheet" href="style.css">
+        <!-- <link rel="stylesheet" href="style.css"> -->
 
         <title>SSRS</title>
 
@@ -46,10 +48,10 @@
 
                                 <div class="card bg-light " style="width: 100%; height: 100%;" >
                                     <div class="card-header text-center">
-                                        Caméra 1
+                                        Caméra rue #1
                                     </div>
                                     <div class="card-body text-center">
-                                        <img src="static/assets/Vue_cam_1_demo.png" class="card-img-top" alt="Camera not found" style="width: 100%; ">
+                                        <img src=""  alt="Camera not found" style="width: 100%; ">
                                     </div>   
                                 </div>
 
@@ -59,10 +61,10 @@
 
                                 <div class="card bg-light " style="width: 100%; height: 100%;" >
                                     <div class="card-header text-center">
-                                        Caméra 2
+                                        Caméra rue #2
                                     </div>
                                     <div class="card-body text-center">
-                                        <img src="static/assets/Vue_cam_2_demo.png" class="card-img-top" alt="Camera not found" style="width: 100%; ">
+                                        <img src="" class="card-img-top" alt="Camera not found" style="width: 100%; ">
                                     </div>   
                                 </div>
 
@@ -72,10 +74,10 @@
 
                                 <div class="card bg-light " style="width: 100%; height: 100%;" >
                                     <div class="card-header text-center">
-                                        Caméra 3
+                                        Caméra rue #3
                                     </div>
                                     <div class="card-body text-center">
-                                        <img src="static/assets/Vue_cam_3_demo.png" class="card-img-top" alt="Camera not found" style="width: 100%; ">
+                                        <img src="" class="card-img-top" alt="Camera not found" style="width: 100%; ">
                                     </div>   
                                 </div>
 
@@ -85,10 +87,10 @@
 
                                 <div class="card bg-light " style="width: 100%; height: 100%;" >
                                     <div class="card-header text-center">
-                                        Caméra 4
+                                        Caméra rue #4
                                     </div>
                                     <div class="card-body text-center">
-                                        <img src="..." class="card-img-top" alt="Camera not found" style="width: 100%; ">
+                                        <img src="" class="card-img-top" alt="Camera non disponnible" style="width: 100%; ">
                                     </div>   
                                 </div>
 
@@ -103,7 +105,7 @@
                             Statut
                         </div>
                         <div class="card-body text-center">
-                            <img src="static/assets/Vue_plan_demo.png" class="card-img-top" alt="Card image cap" style="width: 100%; ">
+                            <img src="" class="card-img-top" alt="Card image cap" style="width: 100%; ">
                         </div>   
                     </div>
                 </div>
@@ -119,10 +121,12 @@
                                     Modes
                                 </div>
                                 <div class="card-body text-center">
+                                    <form method="post" action="/">
+                                        <input type="submit" class="btn btn-info btn-lg" name="manuel" value="Manuel" style="margin: 10px;" >
+                                        <br>
+                                        <input type="submit" class="btn btn-warning btn-lg" name="auto" value="Automatique" style="margin: 10px;" >
+                                    </form>
                                     
-                                    <button class="btn btn-info btn-lg" type="button" style="margin: 10px;" >Manuel</button>
-                                    <br>
-                                    <button class="btn btn-warning btn-lg" type="button" style="margin: 10px;" >Automatique</button>
                                     
                                 </div>   
                             </div>
@@ -153,11 +157,14 @@
                             Contrôle
                         </div>
                         <div class="card-body text-center">
-                            
-                            <button class="btn btn-success">Activer rue 1</button>
-                            <button class="btn btn-success">Activer rue 2</button>
-                            <button class="btn btn-success">Activer rue 3</button>
-                            <button class="btn btn-success disabled">Activer rue 4</button>
+                            <form method="post" action="/">
+                                <input type="submit" name="open1" class="btn btn-success" value="Activer rue 1" style="margin: 10px;">
+                                <input type="submit" name="open2" class="btn btn-success" value="Activer rue 2" style="margin: 10px;">
+                                <input type="submit" name="open3" class="btn btn-success" value="Activer rue 3" style="margin: 10px;">
+                                <input type="submit" name="open4" class="btn btn-success" value="Activer rue 4" style="margin: 10px;">
+                                <br>
+                                <input type="submit" name="close" class="btn btn-danger" value="Désactiver tout" style="margin: 10px; width: 80%">    
+                            </form>
                             
                         </div>   
                     </div>
@@ -168,8 +175,7 @@
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
     </body>
     
