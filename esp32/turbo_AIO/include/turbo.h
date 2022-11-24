@@ -8,7 +8,7 @@
 
 // Servo
 #define ANGLE_CLOSE_FLAP 58
-#define ANGLE_OPEN_FLAP 142
+#define ANGLE_OPEN_FLAP 135
 
 #define MIN_US 500
 #define MAX_US 2400
@@ -32,8 +32,8 @@ class turbo
         void setStreet(int light);
     private:
         Servo* _servo;
-        Adafruit_NeoPixel* _flap;
-        Adafruit_NeoPixel* _street;
+        Adafruit_NeoPixel* _neopixel = nullptr;
+        // Adafruit_NeoPixel* _street = nullptr;
 
         // Servo Var
         int _angle;

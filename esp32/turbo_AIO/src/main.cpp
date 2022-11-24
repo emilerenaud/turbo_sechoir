@@ -4,7 +4,7 @@
 
 #define SERVO_PIN 13
 #define LED_PIN 12
-#define STREET_PIN 14
+#define STREET_PIN 27
 #define OPEN 1
 #define CLOSE 0
 
@@ -68,13 +68,17 @@ class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks
   }
 };
 
+Adafruit_NeoPixel streetLigh(9, 14, NEO_GRB + NEO_KHZ800);
+void setLight(int color);
 
 void setup() {
 	Serial.begin(115200);
   Serial.println("Turbo start here");
     //Init BLE device
   BLEDevice::init("");
- 
+  streetLigh.begin();
+  streetLigh.setBrightness(100);
+
   // Retrieve a Scanner and set the callback we want to use to be informed when we
   // have detected a new device.  Specify that we want active scanning and start the
   // scan to run for 30 seconds.
@@ -85,12 +89,23 @@ void setup() {
 
   pinMode(ONBOARD_LED,OUTPUT);
   turbo_1.setState(OPEN);
+  setLight(RED);
+  delay(1000);
+  turbo_1.setState(CLOSE);
+  setLight(GREEN);
+  // street.setPixelColor(3,100,100,0);
+  // street.setPixelColor(4,100,100,0);
+  // street.setPixelColor(5,100,100,0);
+  // street.show();
+  delay(1000);
+  turbo_1.setState(OPEN);
+  setLight(RED);
 }
 
 
 void loop() {
 
-  turbo_1.updateServo();
+  // turbo_1.updateServo();
   turbo_1.flash();
 
 
@@ -116,11 +131,13 @@ if (state == STATE_DISCONNECTED)
       {
         digitalWrite(ONBOARD_LED,HIGH);
         turbo_1.setState(OPEN);
+        setLight(RED);
       }
       else 
       {
         digitalWrite(ONBOARD_LED,LOW);
         turbo_1.setState(CLOSE);
+        setLight(GREEN);
       }
       newData = false;
     }
@@ -166,6 +183,37 @@ static void characNotifyCallback(BLERemoteCharacteristic* pBLERemoteCharacterist
   }
   dataLength = length;
   newData = true;
+}
+
+
+void setLight(int color)
+{
+      switch (color)
+    {
+    case GREEN:
+        streetLigh.clear();
+        streetLigh.setPixelColor(0,0,100,0);
+        streetLigh.setPixelColor(1,0,100,0);
+        streetLigh.setPixelColor(2,0,100,0);
+        break;
+    case YELLOW:
+        streetLigh.clear();
+        streetLigh.setPixelColor(3,100,100,0);
+        streetLigh.setPixelColor(4,100,100,0);
+        streetLigh.setPixelColor(5,100,100,0);
+        break;
+    case RED:
+        streetLigh.clear();
+        streetLigh.setPixelColor(6,100,0,0);
+        streetLigh.setPixelColor(7,100,0,0);
+        streetLigh.setPixelColor(8,100,0,0);
+        // _street->show();
+        break;
+
+    default:
+        break;
+    }
+    streetLigh.show();
 }
 
 
