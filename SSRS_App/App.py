@@ -41,21 +41,28 @@ def index():
                 print("NOT CONNECTED")
                 print("--------------------")
 
-        # When the button is pressed, send a number through serial
+        # When the button is pressed
         if request.form.get('open1') :
-            esp32.write('1'.encode('utf-8'))
+            # If the port is connected
+            if(esp32.isOpen()):
+                # Send a number through serial
+                esp32.write('1'.encode('utf-8'))
 
         elif  request.form.get('open2') :
-            esp32.write('2'.encode('utf-8'))
+            if(esp32.isOpen()):
+                esp32.write('2'.encode('utf-8'))
 
         elif  request.form.get('open3') :
-            esp32.write('3'.encode('utf-8'))
+            if(esp32.isOpen()):
+                esp32.write('3'.encode('utf-8'))
 
         elif  request.form.get('open4') :
-            esp32.write('4'.encode('utf-8'))
+            if(esp32.isOpen()):
+                esp32.write('4'.encode('utf-8'))
 
         elif  request.form.get('close') :
-            esp32.write('5'.encode('utf-8'))       
+            if(esp32.isOpen()):
+                esp32.write('5'.encode('utf-8'))       
 
     return render_template("index.html")
 
