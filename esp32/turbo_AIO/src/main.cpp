@@ -87,17 +87,17 @@ void setup() {
 
   state = STATE_DISCONNECTED;
 
-  pinMode(ONBOARD_LED,OUTPUT);
-  turbo_1.setState(OPEN);
-  setLight(RED);
-  delay(1000);
-  turbo_1.setState(CLOSE);
-  setLight(GREEN);
+  // pinMode(ONBOARD_LED,OUTPUT);
+  // turbo_1.setState(OPEN);
+  // setLight(RED);
+  // delay(1000);
+  // turbo_1.setState(CLOSE);
+  // setLight(GREEN);
   // street.setPixelColor(3,100,100,0);
   // street.setPixelColor(4,100,100,0);
   // street.setPixelColor(5,100,100,0);
   // street.show();
-  delay(1000);
+  // delay(1000);
   turbo_1.setState(OPEN);
   setLight(RED);
 }
