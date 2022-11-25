@@ -100,13 +100,15 @@ void setup() {
   // delay(1000);
   turbo_1.setState(OPEN);
   setLight(RED);
+  // turbo_1.setState(CLOSE);
+  
 }
 
 
 void loop() {
 
-  // turbo_1.updateServo();
   turbo_1.flash();
+  turbo_1.updateServo();
 
 
 if (state == STATE_DISCONNECTED)

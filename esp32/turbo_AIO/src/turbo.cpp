@@ -53,7 +53,7 @@ turbo::~turbo()
 void turbo::open()
 {   
     this->setStreet(RED);
-    _servo->write(ANGLE_OPEN_FLAP);
+    // _servo->write(ANGLE_OPEN_FLAP);
     // Serial.println("test open");
     _angle = ANGLE_OPEN_FLAP;
     _enable = 1;
@@ -62,7 +62,8 @@ void turbo::open()
 void turbo::close()
 {
     this->setStreet(GREEN);
-    _servo->write(ANGLE_CLOSE_FLAP);
+    // Serial.println(this->_servo->read());
+    // _servo->write(ANGLE_CLOSE_FLAP);
     _angle = ANGLE_CLOSE_FLAP;
     _neopixel[0].clear();
     _neopixel[0].show();
@@ -103,19 +104,25 @@ void turbo::flash()
 
 void turbo::updateServo()
 {
-    if(millis() - this->_lastMillisServo >= 100)
+    if(millis() - this->_lastMillisServo >= 50)
     {
         this->_lastMillisServo = millis();
-        if(this->_lastAngle != this->_angle)
+        _currentAngle = _servo->read();
+        // if(_currentAngle != this->_angle)
+        if(abs(_currentAngle - this->_angle) > 1)
         {
-            _servo->write(_lastAngle);
-            if(this->_lastAngle - this->_angle > 0)
+            // Serial.print(_currentAngle);
+            // Serial.print("    -   ");
+            // Serial.println(_angle);
+            if(_currentAngle - this->_angle > 0)
             {
-                _lastAngle ++;
+                // Serial.println("_currentAngle -1");
+                _servo->write(_currentAngle - 2);
             }
             else
             {
-                _lastAngle --;
+                // Serial.println(angle);
+                _servo->write(_currentAngle + 3);
             }
         }
     }

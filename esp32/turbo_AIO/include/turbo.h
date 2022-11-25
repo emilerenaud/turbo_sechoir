@@ -38,6 +38,7 @@ class turbo
         // Servo Var
         int _angle;
         int _lastAngle;
+        int _currentAngle;
         long _lastMillisServo;
 
         int _flasher;
