@@ -47,7 +47,12 @@ BLEServer *pServer;
 uint8_t modeOpen = 0;
 uint8_t modeClose = 1;
 int incomingByte = 0;
-	
+
+uint8_t mode1 = modeClose;
+uint8_t mode2 = modeClose;
+uint8_t mode3 = modeClose;
+uint8_t mode4 = modeClose;
+
 class MyServerCallbacks: public BLEServerCallbacks {
   void onConnect(BLEServer* pServer) {
     devicesConnected++;
@@ -114,59 +119,50 @@ void loop()
       incomingByte = 0x000F & incomingByte;
       if (incomingByte == 0)
       {
-        charac_1.setValue(&modeClose, 1);
-        charac_1.notify();
-        charac_2.setValue(&modeClose, 1);
-        charac_2.notify();
-        charac_3.setValue(&modeClose, 1);
-        charac_3.notify();
-        charac_4.setValue(&modeClose, 1);
-        charac_4.notify();
+        mode1 = modeClose;
+        mode2 = modeClose;
+        mode3 = modeClose;
+        mode4 = modeClose;
       }
       else if (incomingByte == 1)
       {
-        charac_1.setValue(&modeOpen, 1);
-        charac_1.notify();
-        charac_2.setValue(&modeClose, 1);
-        charac_2.notify();
-        charac_3.setValue(&modeClose, 1);
-        charac_3.notify();
-        charac_4.setValue(&modeClose, 1);
-        charac_4.notify();
+        mode1 = modeOpen;
+        mode2 = modeClose;
+        mode3 = modeClose;
+        mode4 = modeClose;
+
       }
       else if (incomingByte == 2)
       {
-        charac_1.setValue(&modeClose, 1);
-        charac_1.notify();
-        charac_2.setValue(&modeOpen, 1);
-        charac_2.notify();
-        charac_3.setValue(&modeClose, 1);
-        charac_3.notify();
-        charac_4.setValue(&modeClose, 1);
-        charac_4.notify();
+        mode1 = modeClose;
+        mode2 = modeOpen;
+        mode3 = modeClose;
+        mode4 = modeClose;
+
       }
       else if (incomingByte == 3)
       {
-        charac_1.setValue(&modeClose, 1);
-        charac_1.notify();
-        charac_2.setValue(&modeClose, 1);
-        charac_2.notify();
-        charac_3.setValue(&modeOpen, 1);
-        charac_3.notify();
-        charac_4.setValue(&modeClose, 1);
-        charac_4.notify();
+        mode1 = modeClose;
+        mode2 = modeClose;
+        mode3 = modeOpen;
+        mode4 = modeClose;
       }
       else if (incomingByte == 4)
       {
-        charac_1.setValue(&modeClose, 1);
-        charac_1.notify();
-        charac_2.setValue(&modeClose, 1);
-        charac_2.notify();
-        charac_3.setValue(&modeClose, 1);
-        charac_3.notify();
-        charac_4.setValue(&modeOpen, 1);
-        charac_4.notify();
+        mode1 = modeClose;
+        mode2 = modeClose;
+        mode3 = modeClose;
+        mode4 = modeOpen;
       }
+
+      charac_1.setValue(&mode1, 1);
+      charac_1.notify();
+      charac_2.setValue(&mode2, 1);
+      charac_2.notify();
+      charac_3.setValue(&mode3, 1);
+      charac_3.notify();
+      charac_4.setValue(&mode4, 1);
+      charac_4.notify();
     } 
   }
 }
