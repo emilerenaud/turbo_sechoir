@@ -1,7 +1,7 @@
 ###########################################################################
 # Author: Mathieu Beaudoin
 # Date : 2022-11-24
-# Description : Server runing the web GUI of the SSRS prototype
+# Description : Server running the web GUI of the SSRS prototype
 ###########################################################################
 
 ### Imports
@@ -26,7 +26,7 @@ def index():
             # Try to connect to ESP32 at COM4
             try:
                 esp32.port = "COM4"
-                esp32.baudrate = 115200
+                esp32.baudrate = 9600
                 if(esp32.isOpen() == False):
                     esp32.open()
                 else:
@@ -47,6 +47,7 @@ def index():
             if(esp32.isOpen()):
                 # Send a number through serial
                 esp32.write('1'.encode('utf-8'))
+                print('open')
 
         elif  request.form.get('open2') :
             if(esp32.isOpen()):
@@ -62,7 +63,8 @@ def index():
 
         elif  request.form.get('close') :
             if(esp32.isOpen()):
-                esp32.write('5'.encode('utf-8'))       
+                esp32.write('0'.encode('utf-8')) 
+                print('close')      
 
     return render_template("index.html")
 
