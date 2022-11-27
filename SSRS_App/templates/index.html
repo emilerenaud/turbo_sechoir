@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html>
+    <header>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Bootstrap CSS -->
+        <!-- <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css')}}"> -->
+        
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        
+        <!-- Main CSS -->
+        <!-- <link rel="stylesheet" href="style.css"> -->
+
+        <title>SSRS</title>
+
+    </header>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark fix-top" style="background-color: #FFA500; margin-bottom: 10px ;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="font-size: 40px;">SSRS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Tableau de bord</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            
+            <div class="row" style="margin: 10px;">
+                <div class="col-sm-6">                       
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                            <div class="col">
+
+                                <div class="card bg-light " style="width: 100%; height: 100%;" >
+                                    <div class="card-header text-center">
+                                        Caméra rue #1
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <img src="https://i.imgur.com/RD33x9o.png" class="card-img-top" alt="Camera non disponnible" style="width: 100%; ">
+                                    </div>   
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+
+                                <div class="card bg-light " style="width: 100%; height: 100%;" >
+                                    <div class="card-header text-center">
+                                        Caméra rue #2
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <img src="https://i.imgur.com/UOmEeei.png" class="card-img-top" alt="Camera non disponnible" style="width: 100%; ">
+                                    </div>   
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+
+                                <div class="card bg-light " style="width: 100%; height: 100%;" >
+                                    <div class="card-header text-center">
+                                        Caméra rue #3
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <img src="https://i.imgur.com/0saGjqM.png" class="card-img-top" alt="Camera non disponnible" style="width: 100%; ">
+                                    </div>   
+                                </div>
+
+                            </div>
+
+                            <div class="col">
+
+                                <div class="card bg-light " style="width: 100%; height: 100%;" >
+                                    <div class="card-header text-center">
+                                        Caméra rue #4
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <img src="" class="card-img-top" alt="Camera non disponnible" style="width: 100%; ">
+                                    </div>   
+                                </div>
+
+                            </div>
+
+                        </div>
+                </div>
+               
+                <div class="col-md-6">
+                    <div class="card bg-light " style="width: 100%; height: 100%;" >
+                        <div class="card-header text-center">
+                            Statut
+                        </div>
+                        <div class="card-body text-center">
+                            <img src="https://i.imgur.com/xrZis7A.png" class="card-img-top" alt="Card image cap" style="width: 100%; ">
+                        </div>   
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin: 10px;">
+                <div class="col-md-6">
+                    <div class="row row-cols-1 row-cols-md-2 g-2">
+
+                        <div class="col">
+
+                            <div class="card bg-light " style="width: 100%; height: 100%;" >
+                                <div class="card-header text-center">
+                                    Modes
+                                </div>
+                                <div class="card-body text-center">
+                                    <form method="post" action="/">
+                                        <input type="submit" class="btn btn-info btn-lg" name="manuel" value="Manuel" style="margin: 10px;" >
+                                        <br>
+                                        <input type="submit" class="btn btn-warning btn-lg" name="auto" value="Automatique" style="margin: 10px;" >
+                                    </form>
+                                    
+                                    
+                                </div>   
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+
+                            <div class="card bg-light " style="width: 100%; height: 100%;" >
+                                <div class="card-header text-center">
+                                    Paramètres
+                                </div>
+                                <div class="card-body text-center">
+                                    <button class="btn btn-light " type="button" style="margin: 10px;" >param1</button>
+                                    <br>
+                                    <button class="btn btn-light" type="button" style="margin: 10px;" >param2</button>
+                                    
+                                </div>   
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card bg-light " style="width: 100%; height: 100%;" >
+                        <div class="card-header text-center">
+                            Contrôle
+                        </div>
+                        <div class="card-body text-center">
+                            <form method="post" action="/">
+                                <input type="submit" name="open1" class="btn btn-success" value="Activer rue 1" style="margin: 10px;">
+                                <input type="submit" name="open2" class="btn btn-success" value="Activer rue 2" style="margin: 10px;">
+                                <input type="submit" name="open3" class="btn btn-success" value="Activer rue 3" style="margin: 10px;">
+                                <input type="submit" name="open4" class="btn btn-success" value="Activer rue 4" style="margin: 10px;">
+                                <br>
+                                <input type="submit" name="close" class="btn btn-danger" value="Désactiver tout" style="margin: 10px; width: 80%">    
+                            </form>
+                            
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    </body>
+    
+</html>
