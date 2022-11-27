@@ -7,8 +7,20 @@
 
 
 // Servo
-#define ANGLE_CLOSE_FLAP 58
-#define ANGLE_OPEN_FLAP 135
+
+// SPEED BUMP #1
+// #define ANGLE_CLOSE_FLAP 65
+// #define ANGLE_OPEN_FLAP 155
+// SPEED BUMP #2
+#define ANGLE_CLOSE_FLAP 65
+#define ANGLE_OPEN_FLAP 155
+// SPEED BUMP #3
+// #define ANGLE_CLOSE_FLAP 65
+// #define ANGLE_OPEN_FLAP 155
+// SPEED BUMP #4
+// #define ANGLE_CLOSE_FLAP 65
+// #define ANGLE_OPEN_FLAP 155
+
 
 #define MIN_US 500
 #define MAX_US 2400
