@@ -43,6 +43,10 @@ BLEDescriptor descrip_4(BLEUUID((uint16_t)0x2902));
 int devicesConnected = 0;
 bool startAdvertize = true;
 BLEServer *pServer;
+
+uint8_t modeOpen = 0;
+uint8_t modeClose = 1;
+int incomingByte = 0;
 	
 class MyServerCallbacks: public BLEServerCallbacks {
   void onConnect(BLEServer* pServer) {
@@ -63,7 +67,6 @@ class MyServerCallbacks: public BLEServerCallbacks {
 	
 void setup()
 {
-
   Serial.begin(9600);
 
   //Create server
@@ -93,21 +96,7 @@ void setup()
   // Start advertising services
   BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
   pAdvertising->addServiceUUID(SERVICE_UUID);
-
-  Serial.println("allo");
-  
 }
-
-unsigned long time1 = 0;
-unsigned long time2 = 0;
-unsigned long time3 = 0;
-unsigned long time4 = 0;
-static uint8_t mode1 = 0;
-static uint8_t mode2 = 0;
-static uint8_t mode3 = 0;
-static uint8_t mode4 = 0;
-
-int incomingByte = 0;
 
 void loop()
 {
@@ -120,15 +109,65 @@ void loop()
   if (devicesConnected > 0)
   {
     incomingByte = Serial.read();
-    incomingByte = 0x000F & incomingByte;
-    
-    if (incomingByte == 1 || incomingByte == 0)
+    if (incomingByte >= 0)
     {
-      Serial.println(incomingByte);
-      uint8_t mode = incomingByte;
-      charac_4.setValue(&mode, 1);
-      charac_4.notify();
-    }
+      incomingByte = 0x000F & incomingByte;
+      if (incomingByte == 0)
+      {
+        charac_1.setValue(&modeClose, 1);
+        charac_1.notify();
+        charac_2.setValue(&modeClose, 1);
+        charac_2.notify();
+        charac_3.setValue(&modeClose, 1);
+        charac_3.notify();
+        charac_4.setValue(&modeClose, 1);
+        charac_4.notify();
+      }
+      else if (incomingByte == 1)
+      {
+        charac_1.setValue(&modeOpen, 1);
+        charac_1.notify();
+        charac_2.setValue(&modeClose, 1);
+        charac_2.notify();
+        charac_3.setValue(&modeClose, 1);
+        charac_3.notify();
+        charac_4.setValue(&modeClose, 1);
+        charac_4.notify();
+      }
+      else if (incomingByte == 2)
+      {
+        charac_1.setValue(&modeClose, 1);
+        charac_1.notify();
+        charac_2.setValue(&modeOpen, 1);
+        charac_2.notify();
+        charac_3.setValue(&modeClose, 1);
+        charac_3.notify();
+        charac_4.setValue(&modeClose, 1);
+        charac_4.notify();
+      }
+      else if (incomingByte == 3)
+      {
+        charac_1.setValue(&modeClose, 1);
+        charac_1.notify();
+        charac_2.setValue(&modeClose, 1);
+        charac_2.notify();
+        charac_3.setValue(&modeOpen, 1);
+        charac_3.notify();
+        charac_4.setValue(&modeClose, 1);
+        charac_4.notify();
+      }
+      else if (incomingByte == 4)
+      {
+        charac_1.setValue(&modeClose, 1);
+        charac_1.notify();
+        charac_2.setValue(&modeClose, 1);
+        charac_2.notify();
+        charac_3.setValue(&modeClose, 1);
+        charac_3.notify();
+        charac_4.setValue(&modeOpen, 1);
+        charac_4.notify();
+      }
+    } 
   }
 }
 
