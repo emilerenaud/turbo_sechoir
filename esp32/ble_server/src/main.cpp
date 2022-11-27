@@ -113,18 +113,17 @@ void loop()
 
   if (devicesConnected > 0)
   {
-    incomingByte = Serial.read();
-    if (incomingByte >= 0)
+    if(Serial.available())
     {
-      incomingByte = 0x000F & incomingByte;
-      if (incomingByte == 0)
+      int data = Serial.parseint();
+      if (data == 0)
       {
         mode1 = modeClose;
         mode2 = modeClose;
         mode3 = modeClose;
         mode4 = modeClose;
       }
-      else if (incomingByte == 1)
+      else if (data == 1)
       {
         mode1 = modeOpen;
         mode2 = modeClose;
@@ -132,7 +131,7 @@ void loop()
         mode4 = modeClose;
 
       }
-      else if (incomingByte == 2)
+      else if (data == 2)
       {
         mode1 = modeClose;
         mode2 = modeOpen;
@@ -140,14 +139,14 @@ void loop()
         mode4 = modeClose;
 
       }
-      else if (incomingByte == 3)
+      else if (data == 3)
       {
         mode1 = modeClose;
         mode2 = modeClose;
         mode3 = modeOpen;
         mode4 = modeClose;
       }
-      else if (incomingByte == 4)
+      else if (data == 4)
       {
         mode1 = modeClose;
         mode2 = modeClose;
